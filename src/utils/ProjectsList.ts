@@ -172,9 +172,9 @@ const FeatureList = {
 // Replace this with your actual projects
 export const ProjectsList: ProjectsListType = [
     {
-        Name: "Sample Project 1",
-        ShortDesc: "Your first amazing project description goes here.",
-        Desc: "This is where you'll add your detailed project description. Explain what the project does, what problems it solves, and what makes it special.",
+        Name: "ARMS v3",
+        ShortDesc: "ARMS v3 project description.",
+        Desc: "Detailed project description for ARMS v3.",
         Logo: MockLogo,
         Shot: MockShot,
         Mockup: MockMockup,
@@ -189,7 +189,343 @@ export const ProjectsList: ProjectsListType = [
                 description: "Description of your first feature."
             },
             {
-                title: "Feature 2", 
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Vortexa",
+        ShortDesc: "Vortexa project description.",
+        Desc: "Detailed project description for Vortexa.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Next Mart",
+        ShortDesc: "Next Mart project description.",
+        Desc: "Detailed project description for Next Mart.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "ARMS v2",
+        ShortDesc: "ARMS v2 project description.",
+        Desc: "Detailed project description for ARMS v2.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Xrecon",
+        ShortDesc: "Xrecon project description.",
+        Desc: "Detailed project description for Xrecon.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Yoatube",
+        ShortDesc: "Yoatube project description.",
+        Desc: "Detailed project description for Yoatube.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Srinivas Exam Manager",
+        ShortDesc: "Srinivas Exam Manager project description.",
+        Desc: "Detailed project description for Srinivas Exam Manager.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Piktures",
+        ShortDesc: "Piktures project description.",
+        Desc: "Detailed project description for Piktures.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Days Beyond",
+        ShortDesc: "Days Beyond project description.",
+        Desc: "Detailed project description for Days Beyond.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "ARMS v1",
+        ShortDesc: "ARMS v1 project description.",
+        Desc: "Detailed project description for ARMS v1.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Film Stack",
+        ShortDesc: "Film Stack project description.",
+        Desc: "Detailed project description for Film Stack.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Covidtrax",
+        ShortDesc: "Covidtrax project description.",
+        Desc: "Detailed project description for Covidtrax.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
+                description: "Description of your second feature."
+            },
+            FeatureList.Responsive,
+            FeatureList.SEO
+        ],
+        hideProject: false,
+        LogoSize: 50,
+        versions: []
+    },
+    {
+        Name: "Climate",
+        ShortDesc: "Climate project description.",
+        Desc: "Detailed project description for Climate.",
+        Logo: MockLogo,
+        Shot: MockShot,
+        Mockup: MockMockup,
+        Theme: "#6366f1",
+        Status: "completed",
+        Link: "https://your-project-link.com",
+        Source: "https://github.com/kiernan-dev/your-project",
+        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        features: [
+            {
+                title: "Feature 1",
+                description: "Description of your first feature."
+            },
+            {
+                title: "Feature 2",
                 description: "Description of your second feature."
             },
             FeatureList.Responsive,

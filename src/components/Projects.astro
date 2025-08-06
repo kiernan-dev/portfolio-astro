@@ -1,5 +1,5 @@
 ---
-import { ExternalLinkIcon, WrenchIcon } from "lucide-preact";
+import { ExternalLink, Wrench } from "lucide-react";
 import { SectionTitle } from "./UI";
 import { Image } from "astro:assets";
 
@@ -57,7 +57,7 @@ const { ProjectsList } = await ProjectInfo;
                                     <div class="flex">
                                         {project.Status === "development" && (
                                             <div class="flex_center gap-2 px-1 py-0.5 text-orange-400">
-                                                <WrenchIcon size={16} />
+                                                <Wrench size={16} />
 
                                                 <span class="text-[0.8em]">
                                                     Under Development
@@ -72,7 +72,7 @@ const { ProjectsList } = await ProjectInfo;
                                             rel="noreferrer"
                                             class="Projects_Link flex"
                                         >
-                                            <ExternalLinkIcon aria-hidden="true" />
+                                            <ExternalLink aria-hidden="true" />
                                             <span class="sr-only">
                                                 Demo for {project.Name}
                                             </span>

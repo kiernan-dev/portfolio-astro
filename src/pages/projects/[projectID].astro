@@ -1,32 +1,22 @@
 ---
+import { ProjectsList } from "../../utils/ProjectsList";
+
 export function getStaticPaths() {
-    return [
-        { params: { projectID: "arms-v3" } },
-        { params: { projectID: "vortexa" } },
-        { params: { projectID: "next-mart" } },
-        { params: { projectID: "arms-v2" } },
-        { params: { projectID: "xrecon" } },
-        { params: { projectID: "yoatube" } },
-        { params: { projectID: "srinivas-exam-manager" } },
-        { params: { projectID: "piktures" } },
-        { params: { projectID: "days-beyond" } },
-        { params: { projectID: "arms-v1" } },
-        { params: { projectID: "film-stack" } },
-        { params: { projectID: "covidtrax" } },
-        { params: { projectID: "climate" } },
-    ];
+    return ProjectsList.map((project) => ({
+        params: { projectID: project.Name.replaceAll(" ", "-").toLowerCase() },
+    }));
 }
 const { projectID } = Astro.params;
 
 import { Image } from "astro:assets";
 import { ProjectLayout } from "../../layouts";
-import { CheckIcon, ClipboardCopyIcon, ExternalLinkIcon } from "lucide-preact";
+import { Check, ClipboardCopy, ExternalLink } from "lucide-react";
 import { CenterTitle, SectionTitle } from "../../components/UI";
 
 // Lazy loading ProjectInfo
 const ProjectInfo = import("../../utils/ProjectsList");
-const { ProjectsList } = await ProjectInfo;
-const [project] = ProjectsList.filter(
+const { ProjectsList: AllProjects } = await ProjectInfo;
+const [project] = AllProjects.filter(
     (itm) => itm.Name.replaceAll(" ", "-").toLowerCase() === projectID,
 );
 ---
@@ -108,7 +98,7 @@ const [project] = ProjectsList.filter(
                 rel="noreferrer"
                 class="Fade_Stagger flex_center gap-2 bg-LinkBtnGradient px-4 py-2 rounded"
             >
-                <ExternalLinkIcon />
+                <ExternalLink />
                 <span>Live Demo</span>
             </a>
         </div>
@@ -144,8 +134,8 @@ const [project] = ProjectsList.filter(
                                     id="emailCopyBtn"
                                     class="flex_center relative"
                                 >
-                                    <ClipboardCopyIcon class="emailCopyIcon visible" />
-                                    <CheckIcon class="emailCopyIcon absolute invisible" />
+                                    <ClipboardCopy className="emailCopyIcon visible" />
+                                    <Check className="emailCopyIcon absolute invisible" />
                                 </button>
                             </div>
                             <div class="flex gap-4 bg-backgroundLite p-2 rounded-md">
@@ -160,8 +150,8 @@ const [project] = ProjectsList.filter(
                                     id="passCopyBtn"
                                     class="flex_center relative"
                                 >
-                                    <ClipboardCopyIcon class="passCopyIcon visible" />
-                                    <CheckIcon class="passCopyIcon absolute invisible" />
+                                    <ClipboardCopy className="passCopyIcon visible" />
+                                    <Check className="passCopyIcon absolute invisible" />
                                 </button>
                             </div>
                         </div>

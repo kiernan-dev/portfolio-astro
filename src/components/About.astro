@@ -1,72 +1,131 @@
 ---
-import { Image } from "astro:assets";
-import Avatar_250 from "../Avatar_250.webp";
-import Avatar_250_light from "../Avatar_250-light.webp";
 import { SectionTitle } from "./UI";
+import { ComputersCanvas } from ".";
 ---
 
-<section id="about" class="w-full min-h-screen px-6 py-4 pt-14 bg-background">
-    <SectionTitle
-        title="About Me"
-        color="primary"
-        className="h-screen flex flex-col justify-center"
-    >
-        <div class="flex_center flex-col lg:flex-row w-full h-full py-10 gap-8">
-            <!-- Dark theme avatar -->
-            <Image
-                src={Avatar_250}
-                alt="About_Avatar"
-                class="Fade_Up rounded-full scale-x-[-1] lg:mx-14 avatar-dark"
-                width={225}
-                height={225}
-                loading="lazy"
-            />
-            <!-- Light theme avatar -->
-            <Image
-                src={Avatar_250_light}
-                alt="About_Avatar"
-                class="Fade_Up rounded-full scale-x-[-1] lg:mx-14 avatar-light"
-                width={225}
-                height={225}
-                loading="lazy"
-            />
-
-            <div
-                class="Fade_Up w-full md:w-[80%] lg:w-[60%] flex justify-center items-start flex-col gap-4 lg:border-l border-primary py-8 lg:pl-10"
-            >
-                <h2 class="Fade_Up text-[1.5em] font-bold">Hey there! 👋🏻</h2>
-                <p class="Fade_Up text-justify">
-                    I'm Kiernan, a full stack web developer with a strong passion
-                    for crafting digital realms that captivate and inspire.
-                </p>
-                <p class="Fade_Up text-justify">
-                    I specialize in creating dynamic and interactive UI/UX
-                    experience. I stay up to date with the latest tools and
-                    techniques and worked on a wide range of projects, from
-                    personal websites to large-scale applications, sharpening my
-                    problem solving skills and fostering creativity.
-                </p>
-                <p class="Fade_Up text-justify">
-                    If you're seeking a dedicated and passionate web developer,
-                    I'm eager to collaborate with you. Let's bring your ideas to
-                    life!
-                </p>
+<section id="about" class="w-full bg-background relative">
+    <div class="px-6 py-4 pt-14">
+        <SectionTitle
+            title="About Me"
+            color="primary"
+        >
+            <div class="w-full h-[550px] animated-gradient hidden lg:block">
+                <!-- This wrapper is the key to fixing the stacking bug -->
+                <div class="canvas-wrapper">
+                    <ComputersCanvas client:visible />
+                </div>
             </div>
-        </div>
 
-    </SectionTitle>
+            <div class="px-6 py-4">
+                <div
+                    class="Fade_Up w-full md:w-[80%] lg:w-[80%] flex justify-center items-start flex-col gap-4 py-8 mx-auto"
+                >
+                    <h2 class="Fade_Up text-[1.5em] font-bold">Hey there! 👋🏻</h2>
+                    <p class="Fade_Up text-justify">
+                        I'm Kiernan, a <span class="gradientText">Senior Software Engineer</span> with extensive experience in <span class="gradientText">architecting and implementing scalable, high-performance web applications</span>.
+                    </p>
+                    <p class="Fade_Up text-justify">
+                        I specialize in engineering <span class="gradientText">sophisticated and responsive user interfaces</span> utilizing modern frameworks like React and Astro. My focus is on building robust, component-driven architectures and optimizing for performance across a spectrum of projects, from enterprise-level platforms to mission-critical systems.
+                    </p>
+                    <p class="Fade_Up text-justify">
+                        I am eager to collaborate with forward-thinking teams to tackle complex engineering challenges. Let's connect and build something exceptional.
+                    </p>
+                </div>
+            </div>
+        </SectionTitle>
+    </div>
 </section>
 
 <style>
-    .avatar-light {
-        display: none;
+    .animated-gradient {
+        position: relative;
+        overflow: hidden;
     }
-    
-    html.light .avatar-dark {
-        display: none;
+
+    /* This wrapper is the key to fixing the stacking bug */
+    .canvas-wrapper {
+        position: relative;
+        z-index: 1;
+        height: 100%;
     }
-    
-    html.light .avatar-light {
-        display: block;
+
+    /* This makes the Astro component fill the wrapper */
+    .canvas-wrapper > * {
+        height: 100%;
+    }
+
+    .animated-gradient::before,
+    .animated-gradient::after {
+        content: '';
+        position: absolute;
+        z-index: 0; /* Explicitly behind the canvas-wrapper */
+        top: 50%;
+        left: 50%;
+        width: 100vh;
+        padding-bottom: 100vh;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-repeat: no-repeat;
+    }
+
+    .animated-gradient::before {
+        background-image: radial-gradient(ellipse at center, hsl(var(--primary)) 0%, transparent 40%);
+        animation: pulse1 12s ease-in-out infinite;
+    }
+
+    .animated-gradient::after {
+        background-image: radial-gradient(ellipse at center, hsl(var(--secondary)) 0%, transparent 40%);
+        animation: pulse2 12s ease-in-out infinite;
+        opacity: 0;
+    }
+
+    @keyframes pulse1 {
+        0%, 100% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+    }
+
+    @keyframes pulse2 {
+        0%, 100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+        50% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+    /* DEFINITIVE FIX FOR GRADIENT TEXT */
+    .gradientText {
+        background: var(--gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-size: 200%;
+        animation: gradientPan 5s linear infinite;
+        will-change: background-position;
+    }
+
+    @keyframes gradientPan {
+        from {
+            background-position: 0% center;
+        }
+        to {
+            background-position: -200% center;
+        }
     }
 </style>
+
+<style>
+    .gradientText {
+        color: hsl(var(--primary));
+        font-weight: bold;
+    }
+</style>
+
