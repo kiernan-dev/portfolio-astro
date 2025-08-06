@@ -3,7 +3,7 @@ import { Download } from "lucide-preact";
 import ThemeButton from "./ThemeButton.astro";
 ---
 
-<header id="header" class="hidden lg:block sticky top-0 z-50">
+<header id="header" class="hidden lg:block sticky top-0 z-50 transition-all duration-300 ease-in-out">
     <div
         class="flex justify-between items-center w-full px-6 py-2 bg-headerGradient backdrop-blur-[2px]"
     >
@@ -83,4 +83,28 @@ import ThemeButton from "./ThemeButton.astro";
 
     window.addEventListener("scroll", throttle(handleScroll, 100));
     handleScroll(); // Initial call
+    
+    // Hero section background transition - adjust header opacity
+    const heroSection = document.getElementById("Hero");
+    const headerDiv = document.querySelector("#header > div");
+    
+    if (heroSection && headerDiv) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio >= 0.875) {
+                    // 7/8 or more of hero is visible - solid background
+                    headerDiv.style.backgroundColor = 'var(--base)';
+                    headerDiv.style.opacity = '1';
+                } else {
+                    // Less than 7/8 visible (1/8 has scrolled out) - clear blur effect
+                    headerDiv.style.backgroundColor = 'transparent';  
+                    headerDiv.style.opacity = '0.9';
+                }
+            });
+        }, {
+            threshold: [0.875] // Trigger when 1/8 of hero scrolls out of view
+        });
+        
+        observer.observe(heroSection);
+    }
 </script>
