@@ -7,11 +7,11 @@ import Avatar_250_light from "../Avatar_250-light.webp";
 
 <section
     id="Hero"
-    class="w-full h-[calc(100vh-4rem)] px-6 py-4 bg-background flex justify-evenly lg:justify-around items-center flex-col-reverse lg:flex-row overflow-hidden"
+    class="w-full min-h-[calc(100vh-4rem)] px-6 py-4 bg-background grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10"
 >
     <!-- Hero Intro Info -->
-    <div class="w-full lg:w-fit flex justify-start items-center flex-col gap-8">
-        <div class="text-[18px] lg:text-[26px] text-center lg:text-left">
+    <div class="w-full flex justify-center items-center lg:items-start flex-col gap-8 order-last lg:order-first text-center lg:text-left">
+        <div class="text-[18px] lg:text-[26px]">
             <p class="Fade_Stagger">Hi! my name is,</p>
             <h1
                 class="Fade_Stagger gradientText font-ubuntu text-[4em] lg:text-[9rem] leading-tight"
@@ -83,49 +83,89 @@ import Avatar_250_light from "../Avatar_250-light.webp";
     </div>
 
     <!-- Hero Orbit Animation -->
-    <div
-        class="Hero_Orbit relative flex_center w-[360px] lg:w-[500px] aspect-square"
-    >
+    <div class="w-full h-full flex items-center justify-center order-first lg:order-last">
         <div
-            class="Spring_Up flex_center w-[50%] aspect-square rounded-full z-10"
+            class="Hero_Orbit relative flex_center w-[360px] lg:w-[500px] aspect-square z-300"
         >
-            <!-- Dark theme avatar -->
-            <Image
-                src={Avatar_180}
-                alt="Hero_Avatar"
-                class="object-cover avatar-dark"
-                width="250"
-                height="180"
-                srcset={`${Avatar_180.src} 180w, ${Avatar_250.src} 250w`}
-                sizes="(max-width: 640px) 180px, 250px"
-                loading="eager"
-            />
-            <!-- Light theme avatar -->
-            <Image
-                src={Avatar_180}
-                alt="Hero_Avatar"
-                class="object-cover avatar-light"
-                width="250"
-                height="180"
-                srcset={`${Avatar_180.src} 180w, ${Avatar_250_light.src} 250w`}
-                sizes="(max-width: 640px) 180px, 250px"
-                loading="eager"
-            />
-        </div>
-        <div class="Spring_Up Hero_Trail Trail1">
-            <span class="Orbit_Dot"></span>
-        </div>
-        <div class="Spring_Up Hero_Trail Trail2">
-            <span class="Orbit_Dot"></span>
-        </div>
-        <div class="Spring_Up Hero_Trail Trail3">
-            <span class="Orbit_Dot"></span>
-        </div>
-        <div class="Spring_Up Hero_Trail Trail4">
-            <span class="Orbit_Dot"></span>
+            <div
+                class="Spring_Up flex_center w-[50%] aspect-square rounded-full z-20"
+            >
+                <!-- Dark theme avatar -->
+                <Image
+                    src={Avatar_180}
+                    alt="Hero_Avatar"
+                    class="object-cover avatar-dark"
+                    width="250"
+                    height="180"
+                    srcset={`${Avatar_180.src} 180w, ${Avatar_250.src} 250w`}
+                    sizes="(max-width: 640px) 180px, 250px"
+                    loading="eager"
+                />
+                <!-- Light theme avatar -->
+                <Image
+                    src={Avatar_180}
+                    alt="Hero_Avatar"
+                    class="object-cover avatar-light"
+                    width="250"
+                    height="180"
+                    srcset={`${Avatar_180.src} 180w, ${Avatar_250_light.src} 250w`}
+                    sizes="(max-width: 640px) 180px, 250px"
+                    loading="eager"
+                />
+            </div>
+            <div class="Spring_Up Hero_Trail Trail1">
+                <span class="Orbit_Dot"></span>
+            </div>
+            <div class="Spring_Up Hero_Trail Trail2">
+                <span class="Orbit_Dot"></span>
+            </div>
+            <div class="Spring_Up Hero_Trail Trail3">
+                <span class="Orbit_Dot"></span>
+            </div>
+            <div class="Spring_Up Hero_Trail Trail4">
+                <span class="Orbit_Dot"></span>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener('DOMContentLoaded', () => {
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+        const heroSection = document.querySelector("#Hero");
+        const orbitElement = document.querySelector(".Hero_Orbit");
+
+        // Pin the element for the duration of the Hero section
+        ScrollTrigger.create({
+            trigger: heroSection,
+            pin: orbitElement,
+            start: "top top",
+            end: "bottom top",
+            pinSpacing: false,
+        });
+
+        // Animate the element out as it reaches the end of the scroll
+        gsap.to(orbitElement, {
+            yPercent: -100,
+            opacity: 0,
+            ease: "power1.in",
+            scrollTrigger: {
+                trigger: heroSection,
+                start: "-50% top", // Start animation sooner
+                end: "bottom top",
+                scrub: true,
+            },
+        });
+    });
+});
+</script>
 
 <style>
     .avatar-light {
@@ -138,5 +178,9 @@ import Avatar_250_light from "../Avatar_250-light.webp";
     
     html.light .avatar-light {
         display: block;
+    }
+
+    .Hero_Orbit {
+        will-change: transform, opacity;
     }
 </style>

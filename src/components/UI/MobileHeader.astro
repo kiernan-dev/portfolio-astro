@@ -117,22 +117,6 @@ import { Download } from "lucide-react";
         "contact": document.getElementById("contact"),
     };
 
-    // Handle navigation clicks
-    document.querySelectorAll('.nav-link').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = e.target.getAttribute('data-target');
-            const section = document.getElementById(target);
-            
-            if (section) {
-                section.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
     // Set Active class on section scroll
     const handleScroll = () => {
         for (const [sectionId, section] of Object.entries(sectionsList)) {
@@ -210,7 +194,8 @@ import { Download } from "lucide-react";
         cursor: pointer;
         font: inherit;
         color: inherit;
-        padding: 0;
+        padding: 1em;
+        width: 100%;
     }
     
     .nav-link:hover {

@@ -133,20 +133,22 @@ document.addEventListener('DOMContentLoaded', () => {
         z-index: 10;
     }
 
-    /* GSAP ScrollTrigger will handle the sticky positioning */
-    .about-header-wrapper {
-        background: hsl(var(--background));
-        z-index: 100;
-    }
+    @media (min-width: 1024px) {
+        /* GSAP ScrollTrigger will handle the sticky positioning */
+        .about-header-wrapper {
+            background: hsl(var(--background));
+            z-index: 100;
+        }
 
-    .desktop-container {
-        z-index: 50;
-    }
+        .desktop-container {
+            z-index: 50;
+        }
 
-    .about-text-content {
-        position: relative;
-        z-index: 200;
-        background: hsl(var(--background));
+        .about-text-content {
+            position: relative;
+            z-index: 200;
+            background: hsl(var(--background));
+        }
     }
 
     .animated-gradient {
@@ -240,4 +242,3 @@ document.addEventListener('DOMContentLoaded', () => {
         font-weight: bold;
     }
 </style>
-

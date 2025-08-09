@@ -237,18 +237,29 @@ requestAnimationFrame(raf);
 
 // Smooth scroll on Nav Link Click
 document
-    .querySelectorAll('nav a, a[href^="#home"]')
+    .querySelectorAll('header nav a, #mobileHeaderNav .nav-link') // Selector now includes desktop AND mobile links
     .forEach((el) => {
-        el.addEventListener("click", () => {
-            const id = el.getAttribute("href")?.slice(1);
-            if (!id) return;
+        el.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent default browser behavior
 
-            const target = document.getElementById(id);
+            let targetId;
+            if (el.tagName === 'A') {
+                // For desktop anchor tags
+                targetId = el.getAttribute("href")?.slice(1);
+            } else {
+                // For mobile button tags
+                targetId = el.getAttribute("data-target");
+            }
+            
+            if (!targetId) return;
+
+            const target = document.getElementById(targetId);
             if (target) {
-                lenis.scrollTo(target);
+                lenis.scrollTo(target); // Use Lenis for smooth scrolling
 
-                if (window.innerWidth < 1024) {
-                    closeNav()
+                // If the mobile menu is open, close it.
+                if (isMenuOpen) {
+                    closeNav();
                     isMenuOpen = !isMenuOpen;
                     HamMenuButton?.classList.toggle("isOpen");
                 }
