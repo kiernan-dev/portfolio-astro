@@ -5,21 +5,24 @@ import { ComputersCanvas } from ".";
 
 <section id="about" class="w-full bg-background relative">
     <div class="about-container px-6 py-4 pt-14">
-        <div class="about-header-wrapper">
-            <div class="Fade_Up Title-Tag Title_Line relative flex items-center open primary">
-                <span class="text-[1.5em]">{"<"}</span>
-                <p class="text-[1.6em]">About Me</p>
-                <span class="text-[1.5em]">{">"}</span>
+        <div class="sticky-elements-wrapper">
+            <div class="about-header-wrapper">
+                <div class="Fade_Up Title-Tag Title_Line relative flex items-center open primary">
+                    <span class="text-[1.5em]">{"<"}</span>
+                    <p class="text-[1.6em]">About Me</p>
+                    <span class="text-[1.5em]">{">"}</span>
+                </div>
+            </div>
+            
+            <div class="desktop-container w-full h-[550px] animated-gradient hidden lg:block">
+                <!-- This wrapper is the key to fixing the stacking bug -->
+                <div class="canvas-wrapper">
+                    <ComputersCanvas client:load />
+                </div>
             </div>
         </div>
         
         <div class="about-content-wrapper">
-            <div class="desktop-container w-full h-[550px] animated-gradient hidden lg:block">
-                <!-- This wrapper is the key to fixing the stacking bug -->
-                <div class="canvas-wrapper">
-                    <ComputersCanvas client:visible />
-                </div>
-            </div>
 
             <div class="about-text-content px-6 py-4">
                 <div
@@ -50,51 +53,36 @@ import { ComputersCanvas } from ".";
 </section>
 
 <script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 document.addEventListener('DOMContentLoaded', () => {
-    const aboutSection = document.getElementById('about');
-    const aboutContainer = document.querySelector('.about-container');
-    const aboutHeader = document.querySelector('.about-header-wrapper');
-    const desktopContainer = document.querySelector('.desktop-container');
+    const stickyWrapper = document.querySelector('.sticky-elements-wrapper');
     const textContent = document.querySelector('.about-text-content');
     
-    if (!aboutSection || !aboutContainer || !aboutHeader || !desktopContainer || !textContent) return;
-    
-    let isSticky = false;
-    const navHeight = 70; // Adjust based on your nav height
-    
-    const handleScroll = () => {
-        const scrollTop = window.scrollY;
-        const aboutSectionTop = aboutSection.offsetTop;
-        const headerRect = aboutHeader.getBoundingClientRect();
-        const textContentRect = textContent.getBoundingClientRect();
-        
-        // Check if the header has reached the nav position
-        const shouldBeSticky = scrollTop >= (aboutSectionTop + headerRect.height - navHeight);
-        
-        // Check if the text content is touching the header
-        const textTouchingHeader = textContentRect.top <= (navHeight + headerRect.height + 50); // 50px buffer
-        
-        if (shouldBeSticky && !textTouchingHeader && !isSticky) {
-            // Activate sticky mode
-            aboutContainer.classList.add('about-sticky');
-            isSticky = true;
-        } else if ((!shouldBeSticky || textTouchingHeader) && isSticky) {
-            // Deactivate sticky mode
-            aboutContainer.classList.remove('about-sticky');
-            isSticky = false;
-        }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    // Initial check
-    handleScroll();
+    if (!stickyWrapper || !textContent) return;
+
+    // Create ScrollTrigger for the sticky effect
+    ScrollTrigger.create({
+        trigger: stickyWrapper,
+        start: "top 70px", // When wrapper reaches nav height
+        end: () => `+=${textContent.offsetHeight}`, // End when text content finishes scrolling
+        pin: stickyWrapper, // Pin the entire wrapper containing header and desktop
+        pinSpacing: false, // Don't add extra space
+        invalidateOnRefresh: true, // Recalculate on resize
+    });
 });
 </script>
 
 <style>
     .about-container {
         position: relative;
+    }
+
+    .sticky-elements-wrapper {
+        will-change: transform;
     }
 
     .about-header-wrapper {
@@ -122,32 +110,20 @@ document.addEventListener('DOMContentLoaded', () => {
         z-index: 10;
     }
 
-    /* Sticky states */
-    .about-sticky .about-header-wrapper {
-        position: fixed;
-        top: 70px; /* Adjust based on your nav height */
-        left: 0;
-        right: 0;
+    /* GSAP ScrollTrigger will handle the sticky positioning */
+    .about-header-wrapper {
         background: hsl(var(--background));
-        padding: 0 24px;
         z-index: 100;
-        transition: all 0.3s ease;
     }
 
-    .about-sticky .desktop-container {
-        position: fixed;
-        top: 120px; /* Adjust based on header height */
-        left: 0;
-        right: 0;
+    .desktop-container {
         z-index: 50;
-        padding: 0 24px;
-        transition: all 0.3s ease;
     }
 
-    .about-sticky .about-text-content {
-        margin-top: calc(70px + 550px); /* nav height + desktop height */
+    .about-text-content {
         position: relative;
         z-index: 200;
+        background: hsl(var(--background));
     }
 
     .animated-gradient {
