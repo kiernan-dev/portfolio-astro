@@ -4,19 +4,24 @@ import { ComputersCanvas } from ".";
 ---
 
 <section id="about" class="w-full bg-background relative">
-    <div class="px-6 py-4 pt-14">
-        <SectionTitle
-            title="About Me"
-            color="primary"
-        >
-            <div class="w-full h-[550px] animated-gradient hidden lg:block">
+    <div class="about-container px-6 py-4 pt-14">
+        <div class="about-header-wrapper">
+            <div class="Fade_Up Title-Tag Title_Line relative flex items-center open primary">
+                <span class="text-[1.5em]">{"<"}</span>
+                <p class="text-[1.6em]">About Me</p>
+                <span class="text-[1.5em]">{">"}</span>
+            </div>
+        </div>
+        
+        <div class="about-content-wrapper">
+            <div class="desktop-container w-full h-[550px] animated-gradient hidden lg:block">
                 <!-- This wrapper is the key to fixing the stacking bug -->
                 <div class="canvas-wrapper">
                     <ComputersCanvas client:visible />
                 </div>
             </div>
 
-            <div class="px-6 py-4">
+            <div class="about-text-content px-6 py-4">
                 <div
                     class="Fade_Up w-full md:w-[80%] lg:w-[80%] flex justify-center items-start flex-col gap-4 py-8 mx-auto"
                 >
@@ -32,11 +37,119 @@ import { ComputersCanvas } from ".";
                     </p>
                 </div>
             </div>
-        </SectionTitle>
+        </div>
+        
+        <div class="about-footer-wrapper">
+            <div class="Fade_Up Title-Tag Title_Line relative flex items-center close primary">
+                <span class="text-[1.5em]">{"</"}</span>
+                <p class="text-[1.4em]">About Me</p>
+                <span class="text-[1.5em]">{">"}</span>
+            </div>
+        </div>
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const aboutSection = document.getElementById('about');
+    const aboutContainer = document.querySelector('.about-container');
+    const aboutHeader = document.querySelector('.about-header-wrapper');
+    const desktopContainer = document.querySelector('.desktop-container');
+    const textContent = document.querySelector('.about-text-content');
+    
+    if (!aboutSection || !aboutContainer || !aboutHeader || !desktopContainer || !textContent) return;
+    
+    let isSticky = false;
+    const navHeight = 70; // Adjust based on your nav height
+    
+    const handleScroll = () => {
+        const scrollTop = window.scrollY;
+        const aboutSectionTop = aboutSection.offsetTop;
+        const headerRect = aboutHeader.getBoundingClientRect();
+        const textContentRect = textContent.getBoundingClientRect();
+        
+        // Check if the header has reached the nav position
+        const shouldBeSticky = scrollTop >= (aboutSectionTop + headerRect.height - navHeight);
+        
+        // Check if the text content is touching the header
+        const textTouchingHeader = textContentRect.top <= (navHeight + headerRect.height + 50); // 50px buffer
+        
+        if (shouldBeSticky && !textTouchingHeader && !isSticky) {
+            // Activate sticky mode
+            aboutContainer.classList.add('about-sticky');
+            isSticky = true;
+        } else if ((!shouldBeSticky || textTouchingHeader) && isSticky) {
+            // Deactivate sticky mode
+            aboutContainer.classList.remove('about-sticky');
+            isSticky = false;
+        }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial check
+    handleScroll();
+});
+</script>
+
 <style>
+    .about-container {
+        position: relative;
+    }
+
+    .about-header-wrapper {
+        position: relative;
+        z-index: 10;
+    }
+
+    .about-content-wrapper {
+        position: relative;
+    }
+
+    .desktop-container {
+        position: relative;
+        z-index: 5;
+    }
+
+    .about-text-content {
+        position: relative;
+        z-index: 15;
+        background: hsl(var(--background));
+    }
+
+    .about-footer-wrapper {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Sticky states */
+    .about-sticky .about-header-wrapper {
+        position: fixed;
+        top: 70px; /* Adjust based on your nav height */
+        left: 0;
+        right: 0;
+        background: hsl(var(--background));
+        padding: 0 24px;
+        z-index: 100;
+        transition: all 0.3s ease;
+    }
+
+    .about-sticky .desktop-container {
+        position: fixed;
+        top: 120px; /* Adjust based on header height */
+        left: 0;
+        right: 0;
+        z-index: 50;
+        padding: 0 24px;
+        transition: all 0.3s ease;
+    }
+
+    .about-sticky .about-text-content {
+        margin-top: calc(70px + 550px); /* nav height + desktop height */
+        position: relative;
+        z-index: 200;
+    }
+
     .animated-gradient {
         position: relative;
         overflow: hidden;
