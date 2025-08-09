@@ -752,6 +752,48 @@ import { Footer } from "../components";
 					rotate: 360deg;
 				}
 			}
+
+			/* Back to Top Button */
+			.back-to-top {
+				position: fixed;
+				bottom: 30px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: hsl(var(--primary));
+				color: hsl(var(--background));
+				border: none;
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+				z-index: 1000;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			}
+
+			.back-to-top.show {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.back-to-top:hover {
+				background: hsl(var(--secondary));
+				transform: translateX(-50%) translateY(-3px);
+				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+			}
+
+			.back-to-top svg {
+				transition: transform 0.2s ease;
+			}
+
+			.back-to-top:hover svg {
+				transform: translateY(-2px);
+			}
 		</style>
 	</head>
 	<body id="home">
@@ -764,6 +806,44 @@ import { Footer } from "../components";
 
 		<Footer />
 		<Cursor />
+		
+		<!-- Back to Top Button -->
+		<button
+			id="backToTop"
+			class="back-to-top"
+			onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+			aria-label="Back to top"
+		>
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="m18 15-6-6-6 6"/>
+			</svg>
+		</button>
+		
+		<script>
+			// Back to Top Button Logic
+			document.addEventListener('DOMContentLoaded', () => {
+				const backToTopBtn = document.getElementById('backToTop');
+				const heroSection = document.getElementById('Hero') || document.getElementById('home');
+				
+				if (!backToTopBtn || !heroSection) return;
+				
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						// Show button when hero is 90% out of view (10% visible)
+						if (entry.intersectionRatio <= 0.1) {
+							backToTopBtn.classList.add('show');
+						} else {
+							backToTopBtn.classList.remove('show');
+						}
+					});
+				}, {
+					threshold: [0.1] // Trigger when 10% of hero is visible (90% out of view)
+				});
+				
+				observer.observe(heroSection);
+			});
+		</script>
+		
 		<script src="../script.ts"></script>
 	</body>
 </html>

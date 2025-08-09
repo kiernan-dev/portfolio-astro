@@ -6,9 +6,9 @@ import { Download } from "lucide-react";
     class="lg:hidden w-full sticky top-0 z-50 bg-headerGradient backdrop-blur-[2px]"
 >
     <div class="flex justify-between items-center py-2 px-4">
-        <a href="#home" class="Fade_In font-satisfy font-bold text-[2em]">
+        <button class="Fade_In font-satisfy font-bold text-[2em] nav-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <span class="gradientText w-fit">Portfolio.</span>
-        </a>
+        </button>
 
         <svg
             viewBox="20 20 60 60"
@@ -34,19 +34,19 @@ import { Download } from "lucide-react";
         class="w-full h-dvh flex_center flex-col fixed top-0 right-0 gap-8 z-[60]"
     >
         <div class="MobileHeader_Nav flex_center">
-            <a href="#about">About</a>
+            <button class="nav-link" data-target="about">About</button>
         </div>
 
         <div class="MobileHeader_Nav flex_center">
-            <a href="#skills">Skills</a>
+            <button class="nav-link" data-target="skills">Skills</button>
         </div>
 
         <div class="MobileHeader_Nav flex_center">
-            <a href="#projects">Projects</a>
+            <button class="nav-link" data-target="projects">Projects</button>
         </div>
 
         <div class="MobileHeader_Nav flex_center">
-            <a href="#contact">Contact</a>
+            <button class="nav-link" data-target="contact">Contact</button>
         </div>
 
         <div class="MobileHeader_Nav flex_center">
@@ -110,32 +110,48 @@ import { Download } from "lucide-react";
 <script is:inline type="module">
     const headerElement = document.getElementById("mobileHeaderNav");
     const sectionsList = {
-        "#home": document.getElementById("home"),
-        "#about": document.getElementById("about"),
-        "#skills": document.getElementById("skills"),
-        "#projects": document.getElementById("projects"),
-        "#contact": document.getElementById("contact"),
+        "home": document.getElementById("home"),
+        "about": document.getElementById("about"),
+        "skills": document.getElementById("skills"),
+        "projects": document.getElementById("projects"),
+        "contact": document.getElementById("contact"),
     };
+
+    // Handle navigation clicks
+    document.querySelectorAll('.nav-link').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.target.getAttribute('data-target');
+            const section = document.getElementById(target);
+            
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
     // Set Active class on section scroll
     const handleScroll = () => {
-        for (const [linkHref, section] of Object.entries(sectionsList)) {
+        for (const [sectionId, section] of Object.entries(sectionsList)) {
             if (!section) return;
 
             const rect = section.getBoundingClientRect();
-            const link = document.querySelector(
-                `#mobileHeaderNav a[href="${linkHref}"]`,
+            const button = document.querySelector(
+                `#mobileHeaderNav button[data-target="${sectionId}"]`,
             );
 
             if (
-                link &&
+                button &&
                 headerElement &&
                 rect.top <= headerElement.offsetHeight &&
                 rect.bottom >= headerElement.offsetHeight
             ) {
-                link?.classList.add("active");
+                button?.classList.add("active");
             } else {
-                link?.classList.remove("active");
+                button?.classList.remove("active");
             }
         }
     };
@@ -186,3 +202,22 @@ import { Download } from "lucide-react";
     //     }
     // });
 </script>
+
+<style>
+    .nav-link {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        color: inherit;
+        padding: 0;
+    }
+    
+    .nav-link:hover {
+        color: hsl(var(--primary));
+    }
+    
+    .nav-link.active {
+        color: hsl(var(--primary));
+    }
+</style>

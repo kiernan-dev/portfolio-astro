@@ -7,9 +7,9 @@ import ThemeButton from "./ThemeButton.astro";
     <div
         class="flex justify-between items-center w-full px-6 py-2 bg-headerGradient backdrop-blur-[2px]"
     >
-        <a href="/" class="Fade_Down font-satisfy font-bold text-[2em]">
+        <button class="Fade_Down font-satisfy font-bold text-[2em] nav-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <span class="gradientText w-fit">Portfolio.</span>
-        </a>
+        </button>
 
         <div class="Header_Nav flex gap-6">
             <a class="Fade_Down" href="/#about">ABOUT</a>
@@ -40,9 +40,9 @@ import ThemeButton from "./ThemeButton.astro";
     class="lg:hidden w-full sticky top-0 z-50 bg-headerGradient backdrop-blur-[2px]"
 >
     <div class="flex justify-between items-center py-2 px-4">
-        <a href="#home" class="Fade_In font-satisfy font-bold text-[2em]">
+        <button class="Fade_In font-satisfy font-bold text-[2em] nav-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <span class="gradientText w-fit">Portfolio.</span>
-        </a>
+        </button>
 
         <svg
             viewBox="20 20 60 60"
@@ -172,3 +172,14 @@ import ThemeButton from "./ThemeButton.astro";
         }
     });
 </script>
+
+<style>
+    .nav-link {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        color: inherit;
+        padding: 0;
+    }
+</style>

@@ -7,15 +7,15 @@ import ThemeButton from "./ThemeButton.astro";
     <div
         class="flex justify-between items-center w-full px-6 py-2 bg-headerGradient backdrop-blur-[2px]"
     >
-        <a href="#home" class="Fade_Down font-satisfy font-bold text-[2em]">
+        <button class="Fade_Down font-satisfy font-bold text-[2em] nav-link logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <span class="gradientText w-fit">Portfolio.</span>
-        </a>
+        </button>
 
         <nav class="Header_Nav flex gap-6">
-            <a class="Fade_Down" href="#about">ABOUT</a>
-            <a class="Fade_Down" href="#skills">SKILLS</a>
-            <a class="Fade_Down" href="#projects">PROJECTS</a>
-            <a class="Fade_Down" href="#contact">CONTACT</a>
+            <button class="Fade_Down nav-link" data-target="about">ABOUT</button>
+            <button class="Fade_Down nav-link" data-target="skills">SKILLS</button>
+            <button class="Fade_Down nav-link" data-target="projects">PROJECTS</button>
+            <button class="Fade_Down nav-link" data-target="contact">CONTACT</button>
         </nav>
 
         <div class="flex_center gap-4">
@@ -38,32 +38,48 @@ import ThemeButton from "./ThemeButton.astro";
 <script is:inline type="module">
     const headerElement = document.getElementById("header");
     const sectionsList = {
-        "#home": document.getElementById("home"),
-        "#about": document.getElementById("about"),
-        "#skills": document.getElementById("skills"),
-        "#projects": document.getElementById("projects"),
-        "#contact": document.getElementById("contact"),
+        "home": document.getElementById("home"),
+        "about": document.getElementById("about"),
+        "skills": document.getElementById("skills"),
+        "projects": document.getElementById("projects"),
+        "contact": document.getElementById("contact"),
     };
+
+    // Handle navigation clicks
+    document.querySelectorAll('.nav-link').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.target.getAttribute('data-target');
+            const section = document.getElementById(target);
+            
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
     // Set Active class on section scroll
     const handleScroll = () => {
-        for (const [linkHref, section] of Object.entries(sectionsList)) {
+        for (const [sectionId, section] of Object.entries(sectionsList)) {
             if (!section) return;
 
             const rect = section.getBoundingClientRect();
-            const link = document.querySelector(
-                `#header a[href="${linkHref}"]`,
+            const button = document.querySelector(
+                `#header button[data-target="${sectionId}"]`,
             );
 
             if (
-                link &&
+                button &&
                 headerElement &&
                 rect.top <= headerElement.offsetHeight &&
                 rect.bottom >= headerElement.offsetHeight
             ) {
-                link?.classList.add("active");
+                button?.classList.add("active");
             } else {
-                link?.classList.remove("active");
+                button?.classList.remove("active");
             }
         }
     };
@@ -108,3 +124,22 @@ import ThemeButton from "./ThemeButton.astro";
         observer.observe(heroSection);
     }
 </script>
+
+<style>
+    .nav-link {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        color: inherit;
+        padding: 0;
+    }
+    
+    .nav-link:hover {
+        color: hsl(var(--primary));
+    }
+    
+    .nav-link.active {
+        color: hsl(var(--primary));
+    }
+</style>
