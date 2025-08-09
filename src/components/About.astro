@@ -64,15 +64,38 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!stickyWrapper || !textContent) return;
 
-    // Create ScrollTrigger for the sticky effect
-    ScrollTrigger.create({
-        trigger: stickyWrapper,
-        start: "top 70px", // When wrapper reaches nav height
-        end: () => `+=${textContent.offsetHeight}`, // End when text content finishes scrolling
-        pin: stickyWrapper, // Pin the entire wrapper containing header and desktop
-        pinSpacing: false, // Don't add extra space
-        invalidateOnRefresh: true, // Recalculate on resize
-    });
+    let scrollTriggerInstance = null;
+
+    const createScrollTrigger = () => {
+        // Only create sticky effect on screens 1024px and larger
+        if (window.innerWidth >= 1024) {
+            scrollTriggerInstance = ScrollTrigger.create({
+                trigger: stickyWrapper,
+                start: "top 70px", // When wrapper reaches nav height
+                end: () => `+=${textContent.offsetHeight}`, // End when text content finishes scrolling
+                pin: stickyWrapper, // Pin the entire wrapper containing header and desktop
+                pinSpacing: false, // Don't add extra space
+                invalidateOnRefresh: true, // Recalculate on resize
+            });
+        }
+    };
+
+    const handleResize = () => {
+        // Kill existing ScrollTrigger if it exists
+        if (scrollTriggerInstance) {
+            scrollTriggerInstance.kill();
+            scrollTriggerInstance = null;
+        }
+        
+        // Recreate based on current screen size
+        createScrollTrigger();
+    };
+
+    // Initial creation
+    createScrollTrigger();
+    
+    // Handle window resize
+    window.addEventListener('resize', handleResize);
 });
 </script>
 
