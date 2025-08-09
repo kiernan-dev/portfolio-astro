@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .about-text-content {
         position: relative;
         z-index: 15;
-        background: hsl(var(--background));
     }
 
     .about-footer-wrapper {
@@ -147,8 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .about-text-content {
             position: relative;
             z-index: 200;
-            background: hsl(var(--background));
         }
+    }
+
+    html.light .about-text-content {
+        background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75) 20%, transparent 70%);
     }
 
     .animated-gradient {
