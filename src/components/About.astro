@@ -33,10 +33,7 @@ import { ComputersCanvas } from ".";
                         I'm Kiernan, a <span class="gradientText">Senior Software Engineer</span> with extensive experience in <span class="gradientText">architecting and implementing scalable, high-performance web applications</span>.
                     </p>
                     <p class="Fade_Up text-justify">
-                        I specialize in engineering <span class="gradientText">sophisticated and responsive user interfaces</span> utilizing modern frameworks like React and Astro. My focus is on building robust, component-driven architectures and optimizing for performance across a spectrum of projects, from enterprise-level platforms to mission-critical systems.
-                    </p>
-                    <p class="Fade_Up text-justify">
-                        I am eager to collaborate with forward-thinking teams to tackle complex engineering challenges. Let's connect and build something exceptional.
+                        My passion is engineering <span class="gradientText">one-of-a-kind digital experiences</span> for innovators and entrepreneurs. If you're looking to solve a tough problem or create something truly unique, <span class="gradientText">let's connect</span>.
                     </p>
                 </div>
             </div>
@@ -125,6 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .about-text-content {
         position: relative;
         z-index: 15;
+        background: radial-gradient(
+            ellipse at center 55%,
+            hsla(var(--primary), 0.55) 10%,
+            transparent 70%
+        );
     }
 
     .about-footer-wrapper {
@@ -146,11 +148,21 @@ document.addEventListener('DOMContentLoaded', () => {
         .about-text-content {
             position: relative;
             z-index: 200;
+            background: radial-gradient(
+                ellipse at center 55%,
+                hsla(var(--primary), 0.55) 10%,
+                transparent 70%
+            );
         }
     }
 
     html.light .about-text-content {
-        background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.75) 20%, transparent 70%);
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.75) 50%,
+            transparent 100%
+        );
     }
 
     .animated-gradient {
