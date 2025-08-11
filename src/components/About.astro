@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!stickyWrapper || !textContent) return;
 
-    let scrollTriggerInstance = null;
+    let scrollTriggerInstance: any = null;
 
     const createScrollTrigger = () => {
         // Only create sticky effect on screens 1024px and larger
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTriggerInstance = ScrollTrigger.create({
                 trigger: stickyWrapper,
                 start: "top 70px", // When wrapper reaches nav height
-                end: () => `+=${textContent.offsetHeight}`, // End when text content finishes scrolling
+                end: () => `+=${(textContent as HTMLElement).offsetHeight}`, // End when text content finishes scrolling
                 pin: stickyWrapper, // Pin the entire wrapper containing header and desktop
                 pinSpacing: false, // Don't add extra space
                 invalidateOnRefresh: true, // Recalculate on resize
