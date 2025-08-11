@@ -2,8 +2,8 @@
 
 ##### Created : 09/04/2023
 
-# Kiernan | My Personal Portfolio | Fullstack Web Developer
-Welcome to Kiernan's portfolio website, your gateway to the dynamic world of full stack web development. Immerse yourself in the digital realm where my expertise in coding and design converges to create extraordinary online experiences.
+# Kiernan | My Personal Portfolio | Full Stack Web Developer
+Welcome to Kiernan's portfolio website, your gateway to the dynamic world of Full Stack web development. Immerse yourself in the digital realm where my expertise in coding and design converges to create extraordinary online experiences.
 
 ## 💻 Preview
 ![Portfolio Preview](public/Mockup_Preview.png)
