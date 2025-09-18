@@ -69,3 +69,28 @@ temp/
 
 # Vercel
 .vercel/
+
+# AI Assistant files
+# Roo AI
+.roo/
+.roorules
+
+# Claude AI
+CLAUDE.md
+.claude/
+.clauderules
+
+# Cursor AI
+.cursor/
+.cursorrules
+
+# Gemini AI
+.gemini/
+.geminirules
+GEMINI.md
+
+# Other AI assistants
+.ai/
+.assistant/
+*.ai-rules
+*.ai-config
