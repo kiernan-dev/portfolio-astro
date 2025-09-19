@@ -3,7 +3,8 @@ import { Download } from "lucide-react";
 ---
 
 <header
-    class="lg:hidden w-full sticky top-0 z-50 bg-headerGradient backdrop-blur-[2px]"
+    class="lg:hidden w-full sticky top-0 z-50 bg-headerGradient"
+    style="backdrop-filter: blur(4px);"
 >
     <div class="flex justify-between items-center py-2 px-4">
         <button class="Fade_In font-satisfy font-bold text-[2em] nav-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
@@ -30,8 +31,8 @@ import { Download } from "lucide-react";
 
     <nav
         id="mobileHeaderNav"
-        style="clip-path: circle(30px at calc(100vw + 30px) -30px);"
-        class="w-full h-dvh flex_center flex-col fixed top-0 right-0 gap-8 z-[60]"
+        style="clip-path: circle(30px at calc(100vw + 30px) -30px); backdrop-filter: blur(4px);"
+        class="w-full h-screen flex_center flex-col fixed top-0 right-0 gap-8 z-[60]"
     >
         <div class="MobileHeader_Nav flex_center">
             <button class="nav-link" data-target="about">About</button>
@@ -204,5 +205,11 @@ import { Download } from "lucide-react";
     
     .nav-link.active {
         color: hsl(var(--primary));
+    }
+    
+    .header-glassmorphism {
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
     }
 </style>

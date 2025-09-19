@@ -5,7 +5,8 @@ import ThemeButton from "./ThemeButton.astro";
 
 <header id="header" class="hidden lg:block sticky top-0 z-50 transition-all duration-300 ease-in-out">
     <div
-        class="flex justify-between items-center w-full px-6 py-2 bg-headerGradient backdrop-blur-[2px]"
+        class="flex justify-between items-center w-full px-6 py-2 bg-headerGradient"
+        style="backdrop-filter: blur(10px);"
     >
         <button class="Fade_Down font-satisfy font-bold text-[2em] logo-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <span class="gradientText w-fit">Portfolio.</span>
@@ -110,11 +111,9 @@ import ThemeButton from "./ThemeButton.astro";
                 if (entry.intersectionRatio >= 0.875) {
                     // 7/8 or more of hero is visible - solid background
                     headerDiv.style.backgroundColor = 'var(--base)';
-                    headerDiv.style.opacity = '1';
                 } else {
                     // Less than 7/8 visible (1/8 has scrolled out) - clear blur effect
                     headerDiv.style.backgroundColor = 'transparent';  
-                    headerDiv.style.opacity = '0.9';
                 }
             });
         }, {
@@ -141,5 +140,11 @@ import ThemeButton from "./ThemeButton.astro";
     
     .nav-link.active {
         color: hsl(var(--primary));
+    }
+    
+    .header-glassmorphism {
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
     }
 </style>
