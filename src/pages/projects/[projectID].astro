@@ -10,7 +10,7 @@ const { projectID } = Astro.params;
 
 import { Image } from "astro:assets";
 import { ProjectLayout } from "../../layouts";
-import { Check, ClipboardCopy, ExternalLink } from "lucide-react";
+import { Check, ClipboardCopy, ExternalLink, ArrowLeft } from "lucide-react";
 import { CenterTitle, SectionTitle } from "../../components/UI";
 
 // Lazy loading ProjectInfo
@@ -33,6 +33,17 @@ const [project] = AllProjects.filter(
             loading="eager"
         />
         <div class="bg-imgOverlayGradient w-full h-full absolute inset-0"></div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="w-full flex justify-start px-4 py-2">
+        <a
+            href="/#projects"
+            class="Fade_In flex_center gap-2 bg-LinkBtnGradient px-3 py-2 rounded-md hover:opacity-80 transition-opacity duration-200"
+        >
+            <ArrowLeft size={20} />
+            <span>Back to Projects</span>
+        </a>
     </div>
 
     <div class="flex_center flex-col gap-4 py-4">

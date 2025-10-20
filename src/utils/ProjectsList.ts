@@ -2,6 +2,16 @@ import {
     HtmlIcon, CssIcon, JsIcon, ReactIcon, NodeIcon, TsIcon, NextIcon, MysqlIcon, MongoIcon, GdriveIcon, SocketIoIcon, RestApiIcon, PhpIcon, ViteIcon, NextAuthIcon, ReduxIcon, TailwindIcon, ZustandIcon, AstroIcon, NanostoresIcon, D3JsIcon, ReactQueryIcon, EdgeStoreIcon
 } from "../assets/Icons"
 
+// Project mockup images
+import ProjVenmapMockup from "../assets/webp/proj-venmap.webp"
+import ProjKeygenMockup from "../assets/webp/proj-keygen.webp"
+import ProjCardographyMockup from "../assets/webp/proj-cardography.webp"
+import ProjColorstackMockup from "../assets/webp/proj-colorstack.webp"
+import ProjMemoriumMockup from "../assets/webp/proj-memorium.webp"
+import ProjDockerpimpMockup from "../assets/webp/proj-dockerpimp.webp"
+import ProjHealthwiseMockup from "../assets/webp/proj-healthwise.webp"
+import ProjStorybookMockup from "../assets/webp/proj-storybook.webp"
+
 // Mock assets - replace with your actual project assets
 const MockLogo = HtmlIcon; // Placeholder - replace with your logos
 const MockShot = HtmlIcon; // Placeholder - replace with your screenshots  
@@ -155,7 +165,7 @@ const TechInfo = {
         description: "EdgeStore is an open-source file storage service, designed for scalability and performance, with efficient updates and minimal API.",
         icon: EdgeStoreIcon
     }
-};
+}
 
 // Common Features List
 const FeatureList = {
@@ -175,9 +185,9 @@ export const ProjectsList: ProjectsListType = [
         Name: "ARMS v3",
         ShortDesc: "ARMS v3 project description.",
         Desc: "Detailed project description for ARMS v3.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Logo: JsIcon,
+        Shot: CssIcon,
+        Mockup: ProjVenmapMockup,
         Theme: "#6366f1",
         Status: "completed",
         Link: "https://your-project-link.com",
@@ -399,118 +409,6 @@ export const ProjectsList: ProjectsListType = [
         Name: "Days Beyond",
         ShortDesc: "Days Beyond project description.",
         Desc: "Detailed project description for Days Beyond.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
-        Theme: "#6366f1",
-        Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
-        features: [
-            {
-                title: "Feature 1",
-                description: "Description of your first feature."
-            },
-            {
-                title: "Feature 2",
-                description: "Description of your second feature."
-            },
-            FeatureList.Responsive,
-            FeatureList.SEO
-        ],
-        hideProject: false,
-        LogoSize: 50,
-        versions: []
-    },
-    {
-        Name: "ARMS v1",
-        ShortDesc: "ARMS v1 project description.",
-        Desc: "Detailed project description for ARMS v1.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
-        Theme: "#6366f1",
-        Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
-        features: [
-            {
-                title: "Feature 1",
-                description: "Description of your first feature."
-            },
-            {
-                title: "Feature 2",
-                description: "Description of your second feature."
-            },
-            FeatureList.Responsive,
-            FeatureList.SEO
-        ],
-        hideProject: false,
-        LogoSize: 50,
-        versions: []
-    },
-    {
-        Name: "Film Stack",
-        ShortDesc: "Film Stack project description.",
-        Desc: "Detailed project description for Film Stack.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
-        Theme: "#6366f1",
-        Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
-        features: [
-            {
-                title: "Feature 1",
-                description: "Description of your first feature."
-            },
-            {
-                title: "Feature 2",
-                description: "Description of your second feature."
-            },
-            FeatureList.Responsive,
-            FeatureList.SEO
-        ],
-        hideProject: false,
-        LogoSize: 50,
-        versions: []
-    },
-    {
-        Name: "Covidtrax",
-        ShortDesc: "Covidtrax project description.",
-        Desc: "Detailed project description for Covidtrax.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
-        Theme: "#6366f1",
-        Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
-        features: [
-            {
-                title: "Feature 1",
-                description: "Description of your first feature."
-            },
-            {
-                title: "Feature 2",
-                description: "Description of your second feature."
-            },
-            FeatureList.Responsive,
-            FeatureList.SEO
-        ],
-        hideProject: false,
-        LogoSize: 50,
-        versions: []
-    },
-    {
-        Name: "Climate",
-        ShortDesc: "Climate project description.",
-        Desc: "Detailed project description for Climate.",
         Logo: MockLogo,
         Shot: MockShot,
         Mockup: MockMockup,
