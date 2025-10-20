@@ -94,6 +94,9 @@ import { CenterTitle, SectionTitle } from "./";
 </style>
 
 <script is:inline>
+    // Store projects globally for modal access
+    window.projectsData = null;
+    
     // Modal functionality
     const modal = document.getElementById('project-modal');
     const modalContent = document.getElementById('modal-content');
@@ -135,8 +138,14 @@ import { CenterTitle, SectionTitle } from "./";
         }
     });
 
-    // Function to open modal with project data
-    window.openProjectModal = function(project) {
+    // Function to open modal with project ID
+    window.openProjectModal = function(projectId) {
+        // Find project by Name
+        const project = window.projectsData?.find(p => p.Name === projectId);
+        if (!project) {
+            console.error('Project not found:', projectId);
+            return;
+        }
         const content = `
             <div style="display: flex; justify-content: center; align-items: center; position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1;">
                 <img
@@ -209,7 +218,7 @@ import { CenterTitle, SectionTitle } from "./";
                 <img
                     src="${project.Mockup?.src || project.Mockup}"
                     alt="${project.Name}_Mockup_Image"
-                    width="600"
+                    width="auto"
                 />
                 <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;">
                     ${project.Demo ? `

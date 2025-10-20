@@ -11,6 +11,15 @@ import ProjMemoriumMockup from "../assets/webp/proj-memorium.webp"
 import ProjDockerpimpMockup from "../assets/webp/proj-dockerpimp.webp"
 import ProjHealthwiseMockup from "../assets/webp/proj-healthwise.webp"
 import ProjStorybookMockup from "../assets/webp/proj-storybook.webp"
+// Project thumbnail images
+import ProjVenmapThumb from "../assets/png/proj-venmap.png"
+import ProjKeygenThumb from "../assets/png/proj-keygen.png"
+import ProjCardographyThumb from "../assets/png/proj-cardography.png"
+import ProjColorstackThumb from "../assets/png/proj-colorstack.png"
+import ProjMemoriumThumb from "../assets/png/proj-memorium.png"
+import ProjDockerpimpThumb from "../assets/png/proj-dockerpimp.png"
+import ProjHealthwiseThumb from "../assets/png/proj-healthwise.png"
+import ProjStorybookThumb from "../assets/png/proj-storybook.png"
 
 // Mock assets - replace with your actual project assets
 const MockLogo = HtmlIcon; // Placeholder - replace with your logos
@@ -182,25 +191,37 @@ const FeatureList = {
 // Replace this with your actual projects
 export const ProjectsList: ProjectsListType = [
     {
-        Name: "ARMS v3",
-        ShortDesc: "ARMS v3 project description.",
-        Desc: "Detailed project description for ARMS v3.",
-        Logo: JsIcon,
-        Shot: CssIcon,
+        Name: "VentureMap",
+        ShortDesc: "AI-powered business plan generator",
+        Desc: "An AI-powered business planning tool that generates comprehensive business plans and pitch decks. The intelligent assistant maintains full context awareness across all your documents and provides actionable insights to help refine your strategy based on your specific business model and market.",
+        Logo: ReactIcon,
+        Shot: ProjVenmapThumb,
         Mockup: ProjVenmapMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://venmap.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/venture-map",
+        Tech: [TechInfo.Vite, TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "AI-Powered Business Planning",
+                description: "Generate comprehensive business plans and pitch decks using multiple AI providers including Claude, OpenAI, and Gemini with intelligent fallback mechanisms."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Interactive Chat Assistant",
+                description: "Real-time Q&A assistant with voice input support that maintains full context awareness across all your documents and provides actionable business insights."
+            },
+            {
+                title: "Multiple Business Templates",
+                description: "Choose from various business templates including Startup, SaaS, E-commerce, Non-profit, and custom templates tailored to your specific business model."
+            },
+            {
+                title: "Multi-Format Export",
+                description: "Export your business plans in multiple formats including PDF, Google Docs, Notion, PowerPoint, and Word for seamless sharing and presentation."
+            },
+            {
+                title: "Modern UI/UX",
+                description: "Responsive design with dark/light mode support and glass morphism visual effects that provide a seamless experience across all devices."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -210,25 +231,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "Vortexa",
-        ShortDesc: "Vortexa project description.",
-        Desc: "Detailed project description for Vortexa.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "Key Generator",
+        ShortDesc: "Security key generation platform",
+        Desc: "A powerful, production-ready key generation platform for developers and security professionals, featuring multiple algorithms and secure client-side generation, built with React, TypeScript, and Tailwind CSS.",
+        Logo: ReactIcon,
+        Shot: ProjKeygenThumb,
+        Mockup: ProjKeygenMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://keygen.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/keygen",
+        Tech: [TechInfo.Vite, TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "11 Secure Key Generators",
+                description: "Generate API keys, passwords, JWTs, UUIDs, and more using Web Crypto API with 100% client-side generation for complete privacy."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Cryptographically Secure",
+                description: "All keys are generated using cryptographically secure random algorithms with no data transmission, ensuring maximum security."
+            },
+            {
+                title: "Multiple Generator Types",
+                description: "Includes Secret Key, API Key, Password, JWT Secret, UUID, Random String, Hex Color, Base64, Alphanumeric, Numeric, and MAC Address generators."
+            },
+            {
+                title: "Customizable Options",
+                description: "Each generator offers customizable options including character sets, formats, and length specifications to meet your exact requirements."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -238,25 +267,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "Next Mart",
-        ShortDesc: "Next Mart project description.",
-        Desc: "Detailed project description for Next Mart.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "Cardography",
+        ShortDesc: "Visual Journey Thru Design History",
+        Desc: "Cardography is an interactive web showcase featuring over 200 design movements and themes from 1850-2030. This project presents design history through an engaging card-based interface with filtering, animation, and detailed information about each design movement.",
+        Logo: HtmlIcon,
+        Shot: ProjCardographyThumb,
+        Mockup: ProjCardographyMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://cardography.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/cardography",
+        Tech: [TechInfo.HTML, TechInfo.CSS, TechInfo.JavaScript],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "217 Design Movements",
+                description: "Explore comprehensive design history from 1850-2030 featuring movements across 15 categories from prestigious archives like AIGA, Bauhaus-Archiv, and Cooper Hewitt Smithsonian."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Interactive Card Interface",
+                description: "Engaging flip interactions reveal detailed movement information with smooth animations and transitions optimized for both mobile and desktop."
+            },
+            {
+                title: "Smart Filtering System",
+                description: "Filter design movements by colors and design systems with intuitive controls for discovering related movements and themes."
+            },
+            {
+                title: "Zero Dependencies",
+                description: "Built with vanilla HTML5, CSS3, and JavaScript using JSON-based theme library with no build process required for maximum performance."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -266,25 +303,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "ARMS v2",
-        ShortDesc: "ARMS v2 project description.",
-        Desc: "Detailed project description for ARMS v2.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "ColorStack",
+        ShortDesc: "Color palette generator",
+        Desc: "A powerful and intuitive color palette generator for designers and developers. Create, explore, and export beautiful color schemes with ease.",
+        Logo: ReactIcon,
+        Shot: ProjColorstackThumb,
+        Mockup: ProjColorstackMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://colorstack.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/colorstack",
+        Tech: [TechInfo.Vite, TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "Palette Generation",
+                description: "Generate beautiful color palettes with intuitive controls and real-time preview for designers and developers."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Multiple Export Formats",
+                description: "Export palettes in various formats including CSS, SCSS, JSON, and more for seamless integration into your projects."
+            },
+            {
+                title: "Contrast Checker",
+                description: "Built-in contrast checker tool ensures accessibility compliance with WCAG guidelines for better user experience."
+            },
+            {
+                title: "Gradient Maker & Trending Palettes",
+                description: "Create custom gradients and explore trending color combinations with advanced color theory tools and community-driven palette collections."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -294,25 +339,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "Xrecon",
-        ShortDesc: "Xrecon project description.",
-        Desc: "Detailed project description for Xrecon.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "Memorium",
+        ShortDesc: "AI-powered memorial platform",
+        Desc: "A compassionate web application for creating memorial content including eulogies, condolence messages, tribute walls, and QR codes for sharing memories.",
+        Logo: ReactIcon,
+        Shot: ProjMemoriumThumb,
+        Mockup: ProjMemoriumMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://memorium.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/memorium",
+        Tech: [TechInfo.Astro, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "AI Eulogy Generator",
+                description: "Create heartfelt tributes with AI assistance that helps craft meaningful memorial content during difficult times."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Condolence Message Creator",
+                description: "Express sympathy with thoughtful words using AI-guided support for writing compassionate condolence messages."
+            },
+            {
+                title: "Digital Tribute Wall",
+                description: "Share memories and condolences in a beautiful digital space designed for remembrance and community support."
+            },
+            {
+                title: "QR Code Memory Sharing",
+                description: "Generate Share-a-Memory QR codes for easy memory sharing at memorial services and gatherings."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -322,25 +375,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "Yoatube",
-        ShortDesc: "Yoatube project description.",
-        Desc: "Detailed project description for Yoatube.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "DockerPimp",
+        ShortDesc: "Docker commands companion",
+        Desc: "A modern Docker commands companion tool with search, favorites, and copy-to-clipboard functionality.",
+        Logo: NextIcon,
+        Shot: ProjDockerpimpThumb,
+        Mockup: ProjDockerpimpMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://dockerpimp.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/docker-pimp",
+        Tech: [TechInfo.Next, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "100+ Docker Commands",
+                description: "Comprehensive collection of Docker commands organized by categories including Basic, Images, Containers, Networks, and more."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Smart Search & Favorites",
+                description: "Powerful search functionality with persistent favorites system using localStorage for quick access to your most-used commands."
+            },
+            {
+                title: "One-Click Copy",
+                description: "Copy commands and examples to clipboard instantly with automatic theme detection supporting both dark and light modes."
+            },
+            {
+                title: "Categorized Organization",
+                description: "Commands organized into logical categories with popular commands like docker run, docker ps, docker build, and docker-compose highlighted."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -350,25 +411,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "Srinivas Exam Manager",
-        ShortDesc: "Srinivas Exam Manager project description.",
-        Desc: "Detailed project description for Srinivas Exam Manager.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "HealthWise",
+        ShortDesc: "AI-powered health assistant",
+        Desc: "A React-based natural health assistant that helps users track symptoms, discover natural remedies, and gain insights into their wellness journey. Features an AI-powered chat interface, comprehensive symptom tracking, and personalized health insights.",
+        Logo: ReactIcon,
+        Shot: ProjHealthwiseThumb,
+        Mockup: ProjHealthwiseMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://healthwise.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/healthwise",
+        Tech: [TechInfo.Vite, TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "AI Health Assistant",
+                description: "Personalized health recommendations with natural language symptom descriptions and real-time streaming AI responses supporting file and image uploads."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Comprehensive Symptom Tracking",
+                description: "Log symptoms with severity ratings (1-10), track potential triggers, and store data persistently with AI-powered pattern analysis."
+            },
+            {
+                title: "Visual Health Insights",
+                description: "Interactive trend charts and graphs with pattern recognition for health correlations, progress tracking, and AI-generated personalized reports."
+            },
+            {
+                title: "Natural Remedies Database",
+                description: "Evidence-based treatment recommendations with detailed safety information, effectiveness ratings, and interactive remedy cards focused on natural wellness."
             },
             FeatureList.Responsive,
             FeatureList.SEO
@@ -378,53 +447,33 @@ export const ProjectsList: ProjectsListType = [
         versions: []
     },
     {
-        Name: "Piktures",
-        ShortDesc: "Piktures project description.",
-        Desc: "Detailed project description for Piktures.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
+        Name: "StoryBook",
+        ShortDesc: "AI-generated stories",
+        Desc: "An interactive web application for creating personalized children's stories with AI-generated content and illustrations.",
+        Logo: ReactIcon,
+        Shot: ProjStorybookThumb,
+        Mockup: ProjStorybookMockup,
         Theme: "#6366f1",
         Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
+        Link: "https://storybook.kiernan.studio",
+        Source: "https://github.com/kiernan-dev/storybook",
+        Tech: [TechInfo.Vite, TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
         features: [
             {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "AI Story Generation",
+                description: "Create complete personalized children's stories by simply describing what you want with genre selection and age-appropriate content customization."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
-            },
-            FeatureList.Responsive,
-            FeatureList.SEO
-        ],
-        hideProject: false,
-        LogoSize: 50,
-        versions: []
-    },
-    {
-        Name: "Days Beyond",
-        ShortDesc: "Days Beyond project description.",
-        Desc: "Detailed project description for Days Beyond.",
-        Logo: MockLogo,
-        Shot: MockShot,
-        Mockup: MockMockup,
-        Theme: "#6366f1",
-        Status: "completed",
-        Link: "https://your-project-link.com",
-        Source: "https://github.com/kiernan-dev/your-project",
-        Tech: [TechInfo.React, TechInfo.TypeScript, TechInfo.TailwindCSS],
-        features: [
-            {
-                title: "Feature 1",
-                description: "Description of your first feature."
+                title: "Custom Illustrations",
+                description: "Generate custom images for each chapter with adaptive visual content that perfectly matches your story narrative and characters."
             },
             {
-                title: "Feature 2",
-                description: "Description of your second feature."
+                title: "Interactive Story Editing",
+                description: "Edit and customize AI-generated stories with intuitive tools for personalizing characters, plot points, and story elements."
+            },
+            {
+                title: "Y2K-Inspired Design",
+                description: "Enjoy a unique Y2K-themed interface with colorful gradients, mobile-friendly design, and dark/light mode for an engaging storytelling experience."
             },
             FeatureList.Responsive,
             FeatureList.SEO

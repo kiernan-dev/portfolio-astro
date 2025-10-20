@@ -24,8 +24,8 @@ const { ProjectsList } = await ProjectInfo;
                         <div class="Project_Stagger Card_Main w-full h-fit flex_center flex-col bg-cardGradient overflow-hidden rounded-[0.4em] mt-3 opacity-0">
                             <button
                                 class="Projects_Preview w-full relative rounded-[0.4em] cursor-pointer border-none bg-transparent p-0"
-                                data-project={JSON.stringify(project)}
-                                onclick="window.openProjectModal && window.openProjectModal(JSON.parse(this.dataset.project))"
+                                data-project-id={project.Name}
+                                onclick="window.openProjectModal && window.openProjectModal(this.dataset.projectId)"
                             >
                                 <Image
                                     class="Card_Image bg-cover opacity-50 transition-opacity w-full"
@@ -103,3 +103,8 @@ const { ProjectsList } = await ProjectInfo;
     <!-- Project Modal -->
     <ProjectModal />
 </section>
+
+<script is:inline define:vars={{ ProjectsList }}>
+    // Initialize global projects data for modal access
+    window.projectsData = ProjectsList;
+</script>
