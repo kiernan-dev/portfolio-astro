@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import {
     GithubIcon,
-    LinkedinIcon,
     LogoIcon,
 } from "../assets/SVGs";
 
@@ -38,14 +37,7 @@ const currentYear = new Date().getFullYear();
         <span>Kiernan | Portfolio</span>
     </div>
 
-    <div class="grid grid-cols-2 gap-x-20 gap-y-10 lg:gap-20">
-        <a
-            href="https://in.linkedin.com/in/kiernan-dev"
-            target="_blank"
-            rel="noreferrer"
-        >
-            <Image src={LinkedinIcon} alt="LinkedIn" width={30} height={30} />
-        </a>
+    <div class="flex justify-center">
         <a
             href="https://github.com/kiernan-dev"
             target="_blank"
