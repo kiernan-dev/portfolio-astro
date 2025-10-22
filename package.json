@@ -41,6 +41,8 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@types/three": "^0.179.0"
   }
 }
