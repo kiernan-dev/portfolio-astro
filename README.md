@@ -62,6 +62,6 @@ Follow these steps to run the project locally:
 This project is licensed under the [MIT License](LICENSE).  
 You are free to use, modify, and share this project, as long as you include the original copyright.
 
-Based on original work by ChiragChrg.
+Based on original work by [ChiragChrg](https://github.com/ChiragChrg/Portfolio).
 
 © 2025 Kiernan — All rights reserved under MIT.
