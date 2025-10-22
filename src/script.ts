@@ -159,21 +159,17 @@ ScrollTrigger.batch(".Fade_In", {
 // Mobile Nav Ham-Menu Animation
 const MobileNavElement = document.querySelector("#mobileHeaderNav");
 let isMenuOpen = false;
-const dimensions = {
-    width: window.innerWidth,
-    height: window.innerHeight,
-}
 const menuTl = gsap.timeline({ paused: true });
 
 if (MobileNavElement) {
     menuTl.fromTo(
         MobileNavElement,
         {
-            clipPath: `circle(30px at ${dimensions.width + 30}px -30px)`,
+            clipPath: "circle(30px at calc(100vw + 30px) -30px)",
             backgroundColor: "var(--base)",
         },
         {
-            clipPath: `circle(${(dimensions.height * 2) + 200}px at 40px 40px)`,
+            clipPath: "circle(150vh at 40px 40px)",
             backgroundColor: "var(--primaryLite)",
             duration: 0.6,
             ease: "power1.inOut"
