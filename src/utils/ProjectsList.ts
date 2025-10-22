@@ -337,7 +337,7 @@ export const ProjectsList: ProjectsListType = [
         Name: "Memorium",
         ShortDesc: "AI-powered memorial platform",
         Desc: "A compassionate web application for creating memorial content including eulogies, condolence messages, tribute walls, and QR codes for sharing memories.",
-        Logo: ReactIcon,
+        Logo: AstroIcon,
         Shot: ProjMemoriumThumb,
         Mockup: ProjMemoriumMockup,
         Theme: "#6366f1",
