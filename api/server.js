@@ -53,7 +53,7 @@ const router = express.Router();
 router.use('/contact', limiter);
 
 // Contact form endpoint
-router.post('/api/contact', async (req, res) => {
+router.post('/contact', async (req, res) => {
   try {
     const { email, subject, message } = req.body;
 

@@ -31,7 +31,8 @@ const ContactForm = () => {
             setisLoading(true)
             
             // Send to contact API
-            const response = await fetch('/api/contact', {
+            const API_BASE = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3001/api';
+            const response = await fetch(`${API_BASE}/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
