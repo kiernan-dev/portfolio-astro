@@ -8,6 +8,9 @@
     "email": "kiernan-dev@gmail.com",
     "url": "https://kiernan-dev.netlify.app/"
   },
+  "engines": {
+    "node": ">=18.20.8"
+  },
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev",
