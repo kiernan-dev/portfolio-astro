@@ -30,13 +30,26 @@ const ContactForm = () => {
 
             setisLoading(true)
             
-            // Mock contact form submission - replace with your preferred method
-            await new Promise(resolve => setTimeout(resolve, 2000))
-            
-            // For now, just log the form data (you can integrate with your preferred email service)
-            console.log('Contact form submission:', { name, email, message })
+            // Send to contact API
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    subject: `Contact from ${name}`,
+                    message: message
+                })
+            })
 
-            setMailStatus({ status: true, message: "👍 Message logged to console!" })
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to send message')
+            }
+
+            setMailStatus({ status: true, message: "✅ Message sent successfully!" })
             setisLoading(false)
 
             NameRef.current.value = ""
