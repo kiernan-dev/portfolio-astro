@@ -1,4 +1,4 @@
-export { default as LogoIcon } from "./K.svg"
+export { default as LogoIcon } from "./k.svg"
 export { default as PurpleWave } from "./purpleWave.svg"
 export { default as ContactArt } from "./ContactVector.svg"
 
