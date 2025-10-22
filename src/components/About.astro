@@ -23,15 +23,15 @@ import { ComputersCanvas } from ".";
         
         <div class="about-content-wrapper">
 
-            <div class="about-text-content px-6 py-4">
+            <div class="about-text-content px-0 py-2 sm:py-4">
                 <div
-                    class="Fade_Up text-[1.5em] w-full md:w-[80%] lg:w-[80%] flex justify-center items-start flex-col gap-4 py-8 lg:py-20 mx-auto"
+                    class="Fade_Up text-[1em] sm:text-[1.2em] md:text-[1.5em] w-full md:w-[80%] lg:w-[80%] flex justify-center items-start flex-col gap-2 sm:gap-4 py-4 sm:py-8 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-0 mx-auto"
                 >
-                    <h2 class="Fade_Up text-[2em] font-bold">Hey! 👋🏻</h2>
-                    <p class="Fade_Up text-justify">
+                    <h2 class="Fade_Up text-[1.4em] sm:text-[1.6em] md:text-[2em] font-bold mb-2 sm:mb-0">Hey! 👋🏻</h2>
+                    <p class="Fade_Up text-left md:text-justify mb-4">
                         I'm a <span class="gradientText">full-stack developer</span> with 20+ years of design and development experience. My expertise bridges creative design thinking with robust technical implementation, making me equally effective in <span class="gradientText">startup environments</span> and <span class="gradientText">enterprise settings</span>.
                     </p>
-                    <p class="Fade_Up text-justify">
+                    <p class="Fade_Up text-left md:text-justify">
                         I specialize in graphic design and modern web technologies. Whether it's brand/logo design, refining AI-generated code, or architecting full-stack applications, I deliver high-quality results on time and within scope.
                     </p>
                 </div>
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     .about-text-content {
         position: relative;
-        margin: 0 12%;
+        margin: 0;
         z-index: 15;
         background: radial-gradient(
             ellipse 90% 90% at center 55%,
@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .about-text-content {
             position: relative;
+            margin: 0 12%;
             z-index: 40;
             background: radial-gradient(
                 ellipse 70% 50% at center 55%,
