@@ -21,11 +21,6 @@ import ProjDockerpimpThumb from "../assets/png/proj-dockerpimp.png"
 import ProjHealthwiseThumb from "../assets/png/proj-healthwise.png"
 import ProjStorybookThumb from "../assets/png/proj-storybook.png"
 
-// Mock assets - replace with your actual project assets
-const MockLogo = HtmlIcon; // Placeholder - replace with your logos
-const MockShot = HtmlIcon; // Placeholder - replace with your screenshots  
-const MockMockup = HtmlIcon; // Placeholder - replace with your mockups
-
 type ProjectsListType = {
     Name: string,
     ShortDesc: string,
