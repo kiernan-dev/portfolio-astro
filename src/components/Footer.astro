@@ -2,15 +2,15 @@
 import { Image } from "astro:assets";
 import {
     GithubIcon,
-    LogoIcon,
     PurpleWave,
 } from "../assets/SVGs";
+import LogoIcon from "../assets/webp/k-favicon.webp";
 
 const currentYear = new Date().getFullYear();
 ---
 
 <footer
-    class="relative bottom-0 w-full h-[50vh] flex justify-between items-center flex-col px-4 py-8 bg-footer -z-10"
+    class="relative bottom-0 w-full h-[50vh] flex justify-between items-center flex-col px-4 py-8 bg-footer z-10"
 >
     <PurpleWave class="absolute -translate-y-full pb-4 w-full" />
 
